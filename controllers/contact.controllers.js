@@ -1,7 +1,8 @@
+const Contact = require("../models/Contact");
 exports.getAllContacts = async (req, res)=>{
     try {
       const contactList=await Contact.find();
-      res.send({contactList, msg:"get al contact"});  
+      res.send({contacts:contactList, msg:"get al contact"});  
     } catch (error) {
       res.status(400).send({msg:"failed", error});    
     }
@@ -11,7 +12,7 @@ exports.getContactById=async (req, res) =>{
     try {
       const {id} = req.params
       const findContact = await Contact.findById(id)
-      res.send({msg:"get the contact", findContact})  
+      res.send({msg:"get the contact", contact:findContact})  
     } catch (error) {
       res.status(400).send({msg:"failed to get the contact", error})   
     }
@@ -21,7 +22,7 @@ exports.getOneContact=async (req, res) =>{
     try {
       const {id} = req.params
       const findOneContact = await Contact.findOne({_id:id})
-      res.send({msg:"get the contact", findOneContact})  
+      res.send({msg:"get the contact", contact:findOneContact})  
     } catch (error) {
       res.status(400).send({msg:"failed to get the contact", error});   
     };
@@ -35,7 +36,7 @@ exports.addContact=async (req, res)=>{
    }
    const newContact = new Contact({...req.body});
    await newContact.save();
-   res.send({msg:"user added", newContact})
+   res.send({msg:"user added",contact: newContact})
   } catch (error) {
     res.status(400).send({msg:"user not saved", error}) 
   } 

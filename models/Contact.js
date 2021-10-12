@@ -16,7 +16,7 @@ const ContactSchema =new Schema({
         type:String,
         require:true,
     },
-    FavoritFood:String
+    Adresse:String
 });
 
 module.exports= Contact= mongoose.model("contact", ContactSchema)
