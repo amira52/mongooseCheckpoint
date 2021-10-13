@@ -37,7 +37,7 @@ export const addContact= (contact, history)=> async(dispatch)=>{
 export const getContact=(id)=> async(dispatch)=>{
     dispatch({type:GET_ALL_CONTACTS_LOAD})  
   try {
-    let {data} = await axios.get(`/api.contact/${id}`);
+    let {data} = await axios.get(`/api/contact/${id}`);
 dispatch({type:GET_CONTACT, payload:data})
   } catch (error) {
    dispatch ({type:GET_ALL_CONTACTS_fAIL}); 

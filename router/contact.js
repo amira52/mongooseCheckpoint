@@ -22,7 +22,7 @@ router.get("/:id", getContactById)
 router.get("/:id", getOneContact);
 
 //delete contact 
-router.delete("/:_id",deleteContact);
+router.delete("/:id",deleteContact);
 
 //Update contact 
 router.put("./:id", updateContact);

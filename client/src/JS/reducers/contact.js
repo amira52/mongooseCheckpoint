@@ -18,7 +18,7 @@ switch (type) {
     case GET_ALL_CONTACTS_SUCCESS:
         return{...state, contacts: payload.contacts, isLoad:false};
     case GET_CONTACT:
-        return{...state, contacts: payload.contact, isLoad:false};
+        return{...state, contact: payload.contact, isLoad:false};
     case GET_ALL_CONTACTS_fAIL:
         return{...state, isError:true, isLoad:false};
     default:

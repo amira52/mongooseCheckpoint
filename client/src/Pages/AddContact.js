@@ -15,12 +15,12 @@ const AddContact = () => {
  useEffect(() => {
    if(params.id)
    dispatch(getContact(params.id))
- }, [dispatch])
+ }, [dispatch, params.id])
  
  useEffect(() => {
    params.id? seteEdit(true):seteEdit(false)
    edit? setContact(contactToEdit):setContact({Name:"", LastName:"", Email:"", PhoneNumber:""})
- }, [edit, params.id]);
+ }, [edit, params.id, contactToEdit]);
 
 
 const handleChange= (e)=>(
